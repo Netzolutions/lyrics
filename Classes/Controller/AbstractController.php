@@ -1,10 +1,12 @@
 <?php
-namespace Lyrics\Lyrics\Domain\Repository;
+namespace Netscript\Lyrics\Controller;
 
 /***************************************************************
+ *
  *  Copyright notice
  *
- *  (c) 2013 
+ *  (c) 2014 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -24,14 +26,21 @@ namespace Lyrics\Lyrics\Domain\Repository;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-/**
- *
- *
- * @package lyrics
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
- */
-class LyricsDisplayRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-}
-?>
+abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+
+    /**
+     * initialize the controller
+     *
+     * @return void
+     */
+    protected function initializeAction() {
+        parent::initializeAction();
+        //fallback to current pid if no storagePid is defined
+        $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        if (empty($configuration['persistence']['storagePid'])) {
+            $currentPid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
+            $this->configurationManager->setConfiguration(array_merge($configuration, $currentPid));
+        }
+    }
+} 

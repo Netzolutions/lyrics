@@ -30,7 +30,7 @@ namespace Netscript\Lyrics\Controller;
 /**
  * ArtistsController
  */
-class ArtistsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class ArtistsController extends \Netscript\Lyrics\Controller\AbstractController {
 
 	/**
 	 * artistsRepository

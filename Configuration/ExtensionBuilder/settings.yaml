@@ -54,6 +54,9 @@ overwriteSettings:
         #locallang.xml: merge
         #locallang.xlf: merge
       #Templates: keep
+      Backend:
+        Templates:
+          List.html: keep
 	  Templates:
         List.html: keep
 
