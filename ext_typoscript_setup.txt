@@ -1,0 +1,13 @@
+config.tx_extbase{
+    persistence{
+        classes{
+
+            Lyrics\Lyrics\Domain\Model\Lyrics {
+                mapping {
+                    
+                }
+            }
+            
+    	}
+    }
+}

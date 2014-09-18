@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-18T18:11:46Z" product-name="lyrics">
+		<header/>
+		<body>
+			<trans-unit id="tx_lyrics_domain_model_lyrics">
+				<source>Lyrics</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.titel">
+				<source>Titel</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.vlabel">
+				<source>Vlabel</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.composer">
+				<source>Composer</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.time">
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.has_translation">
+				<source>Has Translation</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.translated_title">
+				<source>Translated Title</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.translated_text">
+				<source>Translated Text</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.translator">
+				<source>Translator</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_lyrics.artist">
+				<source>Artist</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_artists">
+				<source>Artists</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_artists.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_artists.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_artists.biographie">
+				<source>Biographie</source>
+			</trans-unit>
+			<trans-unit id="tx_lyrics_domain_model_artists.is_active">
+				<source>Is Active</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,55 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<h1>Listing for Lyrics</h1>
+
+<f:flashMessages />
+
+<table  class="tx_lyrics" >
+	<tr>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.titel" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.text" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.vlabel" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.author" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.composer" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.time" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.has_translation" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.translated_title" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.translated_text" /></th>
+		<th><f:translate key="tx_lyrics_domain_model_lyrics.translator" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{lyricss}" as="lyrics">
+		<tr>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.titel}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.text}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.vlabel}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.author}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.composer}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.time}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.hasTranslation}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.translatedTitle}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.translatedText}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{lyrics : lyrics}"> {lyrics.translator}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{lyrics : lyrics}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{lyrics : lyrics}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Lyrics</f:link.action>
+</f:section>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-18T18:11:46Z" product-name="lyrics">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Is active</source>
+			</trans-unit>
+			<trans-unit id="biographie.description">
+				<source>Is active</source>
+			</trans-unit>
+			<trans-unit id="is_active.description">
+				<source>Is active</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
