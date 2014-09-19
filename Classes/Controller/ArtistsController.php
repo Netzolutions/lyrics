@@ -1,5 +1,5 @@
 <?php
-namespace Netscript\Lyrics\Controller;
+namespace Netzcript\Lyrics\Controller;
 
 
 /***************************************************************
@@ -30,15 +30,9 @@ namespace Netscript\Lyrics\Controller;
 /**
  * ArtistsController
  */
-class ArtistsController extends \Netscript\Lyrics\Controller\AbstractController {
+class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController {
 
-	/**
-	 * artistsRepository
-	 *
-	 * @var \Netscript\Lyrics\Domain\Repository\ArtistsRepository
-	 * @inject
-	 */
-	protected $artistsRepository = NULL;
+	
 
 	/**
 	 * action list
@@ -53,31 +47,31 @@ class ArtistsController extends \Netscript\Lyrics\Controller\AbstractController 
 	/**
 	 * action show
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $artists
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
 	 * @return void
 	 */
-	public function showAction(\Netscript\Lyrics\Domain\Model\Artists $artists) {
+	public function showAction(\Netzcript\Lyrics\Domain\Model\Artists $artists) {
 		$this->view->assign('artists', $artists);
 	}
 
 	/**
 	 * action new
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $newArtists
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $newArtists
 	 * @ignorevalidation $newArtists
 	 * @return void
 	 */
-	public function newAction(\Netscript\Lyrics\Domain\Model\Artists $newArtists = NULL) {
+	public function newAction(\Netzcript\Lyrics\Domain\Model\Artists $newArtists = NULL) {
 		$this->view->assign('newArtists', $newArtists);
 	}
 
 	/**
 	 * action create
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $newArtists
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $newArtists
 	 * @return void
 	 */
-	public function createAction(\Netscript\Lyrics\Domain\Model\Artists $newArtists) {
+	public function createAction(\Netzcript\Lyrics\Domain\Model\Artists $newArtists) {
 		$this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 		$this->artistsRepository->add($newArtists);
 		$this->redirect('list');
@@ -86,21 +80,21 @@ class ArtistsController extends \Netscript\Lyrics\Controller\AbstractController 
 	/**
 	 * action edit
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $artists
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
 	 * @ignorevalidation $artists
 	 * @return void
 	 */
-	public function editAction(\Netscript\Lyrics\Domain\Model\Artists $artists) {
+	public function editAction(\Netzcript\Lyrics\Domain\Model\Artists $artists) {
 		$this->view->assign('artists', $artists);
 	}
 
 	/**
 	 * action update
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $artists
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
 	 * @return void
 	 */
-	public function updateAction(\Netscript\Lyrics\Domain\Model\Artists $artists) {
+	public function updateAction(\Netzcript\Lyrics\Domain\Model\Artists $artists) {
 		$this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 		$this->artistsRepository->update($artists);
 		$this->redirect('list');
@@ -109,10 +103,10 @@ class ArtistsController extends \Netscript\Lyrics\Controller\AbstractController 
 	/**
 	 * action delete
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $artists
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
 	 * @return void
 	 */
-	public function deleteAction(\Netscript\Lyrics\Domain\Model\Artists $artists) {
+	public function deleteAction(\Netzcript\Lyrics\Domain\Model\Artists $artists) {
 		$this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 		$this->artistsRepository->remove($artists);
 		$this->redirect('list');

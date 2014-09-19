@@ -29,7 +29,7 @@ if (TYPO3_MODE === 'BE') {
 	 * Registers a Backend Module
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-		'Netscript.' . $_EXTKEY,
+		'Netzcript.' . $_EXTKEY,
 		'web',	 // Make module a submodule of 'web'
 		'lyrics',	// Submodule key
 		'',						// Position
@@ -48,7 +48,7 @@ if (TYPO3_MODE === 'BE') {
 	 * Registers a Backend Module
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-		'Netscript.' . $_EXTKEY,
+		'Netzcript.' . $_EXTKEY,
 		'web',	 // Make module a submodule of 'web'
 		'artists',	// Submodule key
 		'',						// Position

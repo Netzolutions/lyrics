@@ -1,5 +1,5 @@
 <?php
-namespace Netscript\Lyrics\Domain\Model;
+namespace Netzcript\Lyrics\Domain\Model;
 
 
 /***************************************************************
@@ -17,7 +17,7 @@ namespace Netscript\Lyrics\Domain\Model;
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
+ *  
  *
  *  This script is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -107,7 +107,7 @@ class Lyrics extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Artist
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netscript\Lyrics\Domain\Model\Artists>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Lyrics\Domain\Model\Artists>
 	 */
 	protected $artist = NULL;
 
@@ -333,27 +333,27 @@ class Lyrics extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Adds a Artists
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $artist
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $artist
 	 * @return void
 	 */
-	public function addArtist(\Netscript\Lyrics\Domain\Model\Artists $artist) {
+	public function addArtist(\Netzcript\Lyrics\Domain\Model\Artists $artist) {
 		$this->artist->attach($artist);
 	}
 
 	/**
 	 * Removes a Artists
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Artists $artistToRemove The Artists to be removed
+	 * @param \Netzcript\Lyrics\Domain\Model\Artists $artistToRemove The Artists to be removed
 	 * @return void
 	 */
-	public function removeArtist(\Netscript\Lyrics\Domain\Model\Artists $artistToRemove) {
+	public function removeArtist(\Netzcript\Lyrics\Domain\Model\Artists $artistToRemove) {
 		$this->artist->detach($artistToRemove);
 	}
 
 	/**
 	 * Returns the artist
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netscript\Lyrics\Domain\Model\Artists> $artist
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Lyrics\Domain\Model\Artists> $artist
 	 */
 	public function getArtist() {
 		return $this->artist;
@@ -362,7 +362,7 @@ class Lyrics extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the artist
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netscript\Lyrics\Domain\Model\Artists> $artist
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Lyrics\Domain\Model\Artists> $artist
 	 * @return void
 	 */
 	public function setArtist(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $artist) {

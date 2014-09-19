@@ -1,5 +1,5 @@
 <?php
-namespace Netscript\Lyrics\Controller;
+namespace Netzcript\Lyrics\Controller;
 
 /***************************************************************
  *
@@ -29,6 +29,23 @@ namespace Netscript\Lyrics\Controller;
 
 abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
+    /**
+     * lyricsRepository
+     *
+     * @var \Netzcript\Lyrics\Domain\Repository\LyricsRepository
+     * @inject
+     */
+    protected $lyricsRepository = NULL;
+
+    /**
+     * artistsRepository
+     *
+     * @var \Netzcript\Lyrics\Domain\Repository\ArtistsRepository
+     * @inject
+     */
+    protected $artistsRepository = NULL;
+    
+    
     /**
      * initialize the controller
      *

@@ -4,10 +4,10 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Netscript.' . $_EXTKEY,
+	'Netzcript.' . $_EXTKEY,
 	'Lyrics',
 	array(
-		'Lyrics' => 'list, show',
+		'Lyrics' => 'list, show, listByArtist',
 		
 	),
 	// non-cacheable actions
@@ -19,7 +19,7 @@ if (!defined('TYPO3_MODE')) {
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Netscript.' . $_EXTKEY,
+	'Netzcript.' . $_EXTKEY,
 	'Artist',
 	array(
 		'Artists' => 'list, show',

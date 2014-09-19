@@ -54,6 +54,30 @@
 			<trans-unit id="tx_lyrics_domain_model_artists.is_active">
 				<source>Is Active</source>
 			</trans-unit>
+
+            <trans-unit id="flexform.main.title">
+                <source>Lyrics</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.view">
+                <source>Choose View</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.list">
+                <source>List</source>
+            </trans-unit>
+            <trans-unit id="flexform.main.show">
+                <source>Show</source>
+            </trans-unit>
+
+            <trans-unit id="flexform.list.title">
+                <source>List Lyrics</source>
+            </trans-unit>
+            <trans-unit id="flexform.list.artist">
+                <source>Default Artist</source>
+            </trans-unit>
+
+            <trans-unit id="pleaseChoose">
+                <source>Please choose...</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

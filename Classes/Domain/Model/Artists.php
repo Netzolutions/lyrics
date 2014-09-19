@@ -1,5 +1,5 @@
 <?php
-namespace Netscript\Lyrics\Domain\Model;
+namespace Netzcript\Lyrics\Domain\Model;
 
 
 /***************************************************************

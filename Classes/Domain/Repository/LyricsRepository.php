@@ -1,5 +1,5 @@
 <?php
-namespace Netscript\Lyrics\Domain\Repository;
+namespace Netzcript\Lyrics\Domain\Repository;
 
 
 /***************************************************************
@@ -32,5 +32,22 @@ namespace Netscript\Lyrics\Domain\Repository;
  */
 class LyricsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
-	
+    /**
+     * Find Lyrics by Artists
+     * @param \int $artistUid
+     * @return object
+     */
+    public function findByArtist($artist) {
+        $query = $this->createQuery();
+        #$query->matching($query->equals("artists.uid", $artistUid));
+        $query->matching($query->contains('artist', $artist));
+
+        $query->setOrderings(
+            array(
+                'titel' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+            )
+        );
+        $object = $query->execute();
+        return $object;
+    }
 }

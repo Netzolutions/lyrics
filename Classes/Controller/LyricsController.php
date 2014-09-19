@@ -1,5 +1,5 @@
 <?php
-namespace Netscript\Lyrics\Controller;
+namespace Netzcript\Lyrics\Controller;
 
 
 /***************************************************************
@@ -30,54 +30,64 @@ namespace Netscript\Lyrics\Controller;
 /**
  * LyricsController
  */
-class LyricsController extends \Netscript\Lyrics\Controller\AbstractController {
-
-	/**
-	 * lyricsRepository
-	 *
-	 * @var \Netscript\Lyrics\Domain\Repository\LyricsRepository
-	 * @inject
-	 */
-	protected $lyricsRepository = NULL;
+class LyricsController extends \Netzcript\Lyrics\Controller\AbstractController {
 
 	/**
 	 * action list
 	 *
 	 * @return void
 	 */
-	public function listAction() {
+	/*public function listAction() {
 		$lyrics = $this->lyricsRepository->findAll();
 		$this->view->assign('lyrics', $lyrics);
-	}
+	}*/
+
+    /**
+     * action list by Artist
+     * @param \Netzcript\Lyrics\Domain\Model\Artists $artist
+     * @return void
+     */
+    public function listAction(\Netzcript\Lyrics\Domain\Model\Artists $artist)
+    {
+
+        $this->view->assign('artisttt', $artist);
+        if ($artist == Null) {
+           # $artist = $this->settings['list']['artist'];
+        }
+        $lyrics = $this->lyricsRepository->findByArtist($artist);
+        $artists = $this->artistsRepository->findAll();
+        $this->view->assign('lyricsa', $lyrics);
+        $this->view->assign('artists', $artists);
+    }
 
 	/**
 	 * action show
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Lyrics $lyrics
+	 * @param \Netzcript\Lyrics\Domain\Model\Lyrics $lyrics
 	 * @return void
 	 */
-	public function showAction(\Netscript\Lyrics\Domain\Model\Lyrics $lyrics) {
+	public function showAction(\Netzcript\Lyrics\Domain\Model\Lyrics $lyrics) {
 		$this->view->assign('lyrics', $lyrics);
 	}
 
 	/**
 	 * action new
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Lyrics $newLyrics
+	 * @param \Netzcript\Lyrics\Domain\Model\Lyrics $newLyrics
 	 * @ignorevalidation $newLyrics
 	 * @return void
 	 */
-	public function newAction(\Netscript\Lyrics\Domain\Model\Lyrics $newLyrics = NULL) {
+	public function newAction(\Netzcript\Lyrics\Domain\Model\Lyrics $newLyrics = NULL) {
 		$this->view->assign('newLyrics', $newLyrics);
 	}
 
 	/**
 	 * action create
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Lyrics $newLyrics
+	 * @param \Netzcript\Lyrics\Domain\Model\Lyrics $newLyrics
 	 * @return void
 	 */
-	public function createAction(\Netscript\Lyrics\Domain\Model\Lyrics $newLyrics) {
+	public function createAction(\Netzcript\Lyrics\Domain\Model\Lyrics $newLyrics) {
 		$this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 		$this->lyricsRepository->add($newLyrics);
 		$this->redirect('list');
@@ -86,21 +96,21 @@ class LyricsController extends \Netscript\Lyrics\Controller\AbstractController {
 	/**
 	 * action edit
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Lyrics $lyrics
+	 * @param \Netzcript\Lyrics\Domain\Model\Lyrics $lyrics
 	 * @ignorevalidation $lyrics
 	 * @return void
 	 */
-	public function editAction(\Netscript\Lyrics\Domain\Model\Lyrics $lyrics) {
+	public function editAction(\Netzcript\Lyrics\Domain\Model\Lyrics $lyrics) {
 		$this->view->assign('lyrics', $lyrics);
 	}
 
 	/**
 	 * action update
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Lyrics $lyrics
+	 * @param \Netzcript\Lyrics\Domain\Model\Lyrics $lyrics
 	 * @return void
 	 */
-	public function updateAction(\Netscript\Lyrics\Domain\Model\Lyrics $lyrics) {
+	public function updateAction(\Netzcript\Lyrics\Domain\Model\Lyrics $lyrics) {
 		$this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 		$this->lyricsRepository->update($lyrics);
 		$this->redirect('list');
@@ -109,10 +119,10 @@ class LyricsController extends \Netscript\Lyrics\Controller\AbstractController {
 	/**
 	 * action delete
 	 *
-	 * @param \Netscript\Lyrics\Domain\Model\Lyrics $lyrics
+	 * @param \Netzcript\Lyrics\Domain\Model\Lyrics $lyrics
 	 * @return void
 	 */
-	public function deleteAction(\Netscript\Lyrics\Domain\Model\Lyrics $lyrics) {
+	public function deleteAction(\Netzcript\Lyrics\Domain\Model\Lyrics $lyrics) {
 		$this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
 		$this->lyricsRepository->remove($lyrics);
 		$this->redirect('list');

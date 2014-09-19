@@ -1,24 +1,29 @@
 <T3DataStructure>
 	<sheets>
-		<sDEF>
+		<main>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>Function</sheetTitle>
+					<sheetTitle>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.title</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 					<switchableControllerActions>
 						<TCEforms>
-							<label>Select function</label>
+							<label>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.view</label>
+                            <onChange>reload</onChange>
 							<config>
 								<type>select</type>
 								<items>
-									<numIndex index="0">
-										<numIndex index="0">List Lyrics</numIndex>
-										<numIndex index="1">Lyrics->list</numIndex>
-									</numIndex>
+                                    <numIndex index="0">
+                                        <numIndex index="0">LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:pleaseChoose</numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
 									<numIndex index="1">
-										<numIndex index="0">Show Lyrics</numIndex>
+										<numIndex index="0">LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.list</numIndex>
+										<numIndex index="1">Lyrics->list;</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.show</numIndex>
 										<numIndex index="1">Lyrics->show</numIndex>
 									</numIndex>
 								</items>
@@ -27,6 +32,32 @@
 					</switchableControllerActions>
 				</el>
 			</ROOT>
-		</sDEF>
+		</main>
+        <list>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.list.title</sheetTitle>
+                    <displayCond><![CDATA[FIELD:main.switchableControllerActions:=:Lyrics->list;]]></displayCond>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.list.artist>
+                        <TCEforms>
+                            <label>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.list.artist</label>
+                            <config>
+                                <type>select</type>
+                                <maxitems>1</maxitems>
+                                <size>1</size>
+                                <autoSizeMax>20</autoSizeMax>
+                                <minitems>1</minitems>
+                                <foreign_table>tx_lyrics_domain_model_artists</foreign_table>
+                                <foreign_table_where>AND tx_lyrics_domain_model_artists.deleted = 0 AND tx_lyrics_domain_model_artists.hidden = 0 order by tx_lyrics_domain_model_artists.name</foreign_table_where>
+                                <allowNonIdValues>0</allowNonIdValues>
+                            </config>
+                        </TCEforms>
+                    </settings.list.artist>
+                </el>
+            </ROOT>
+        </list>
 	</sheets>
 </T3DataStructure>
