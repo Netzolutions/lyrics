@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-18T18:11:46Z" product-name="lyrics">
-		<header/>
-		<body>
-			<trans-unit id="titel.description">
-				<source>Title</source>
-			</trans-unit>
-			<trans-unit id="text.description">
-				<source>Lyric Text</source>
-			</trans-unit>
-			<trans-unit id="vlabel.description">
-				<source>Label</source>
-			</trans-unit>
-			<trans-unit id="author.description">
-				<source>Author</source>
-			</trans-unit>
-			<trans-unit id="composer.description">
-				<source>Composer</source>
-			</trans-unit>
-			<trans-unit id="time.description">
-				<source>Lengh of Song</source>
-			</trans-unit>
-			<trans-unit id="has_translation.description">
-				<source>hasTranslation</source>
-			</trans-unit>
-			<trans-unit id="translated_title.description">
-				<source>translatedTitle</source>
-			</trans-unit>
-			<trans-unit id="translated_text.description">
-				<source>translatedText</source>
-			</trans-unit>
-			<trans-unit id="translator.description">
-				<source>translator</source>
-			</trans-unit>
-			<trans-unit id="artist.description">
-				<source>Artist</source>
-			</trans-unit>
-		</body>
-	</file>
+    <file source-language="en" datatype="plaintext" original="messages" date="2014-09-18T18:11:46Z"
+          product-name="lyrics">
+        <header/>
+        <body>
+            <trans-unit id="titel.description">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="text.description">
+                <source>Lyric Text</source>
+            </trans-unit>
+            <trans-unit id="vlabel.description">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="author.description">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="composer.description">
+                <source>Composer</source>
+            </trans-unit>
+            <trans-unit id="time.description">
+                <source>Lengh of Song</source>
+            </trans-unit>
+            <trans-unit id="has_translation.description">
+                <source>hasTranslation</source>
+            </trans-unit>
+            <trans-unit id="translated_title.description">
+                <source>translatedTitle</source>
+            </trans-unit>
+            <trans-unit id="translated_text.description">
+                <source>translatedText</source>
+            </trans-unit>
+            <trans-unit id="translator.description">
+                <source>translator</source>
+            </trans-unit>
+            <trans-unit id="artist.description">
+                <source>Artist</source>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>

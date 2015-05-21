@@ -1,44 +1,58 @@
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 This Template is responsible for creating a table of domain objects.
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
+Resources:
+Private:
+Templates:
+List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<ul>
-    <f:for each="{artists}" as="artist" iteration="iterator">
-        <li>
-            <f:if condition="{iterator.isFirst}">
-                <f:then>
-                    <f:link.action class="first" action="list" noCacheHash="0" arguments="{artist : artist}">{artist.name}</f:link.action>
-                </f:then>
-                <f:else>
-                    <f:if condition="{iterator.isLast}">
-                        <f:then>
-                            <f:link.action class="last" action="list" noCacheHash="0" arguments="{artist : artist}">{artist.name}</f:link.action>
-                        </f:then>
-                        <f:else>
-                            <f:link.action action="list" noCacheHash="0" arguments="{artist : artist}">{artist.name}</f:link.action>
-                        </f:else>
-                    </f:if>
-                </f:else>
-            </f:if>
-        </li>
-    </f:for>
-</ul>
-<div>
-    <ol>
-	    <f:for each="{lyricsa}" as="lyric">
-            <li><f:link.action action="show" arguments="{lyric : lyric}" noCacheHash="0"><f:format.html>{lyric.titel}</f:format.html></f:link.action></li>
-           <f:comment> <li><f:format.html>{lyric.titel}</f:format.html></li></f:comment>
-	    </f:for>
-    </ol>
-</div>
+    <ul>
+        <f:for each="{artists}" as="artist" iteration="iterator">
+            <li>
+                <f:if condition="{iterator.isFirst}">
+                    <f:then>
+                        <f:link.action class="first" action="list" noCacheHash="0" arguments="{artist : artist}">
+                            {artist.name}
+                        </f:link.action>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{iterator.isLast}">
+                            <f:then>
+                                <f:link.action class="last" action="list" noCacheHash="0" arguments="{artist : artist}">
+                                    {artist.name}
+                                </f:link.action>
+                            </f:then>
+                            <f:else>
+                                <f:link.action action="list" noCacheHash="0" arguments="{artist : artist}">
+                                    {artist.name}
+                                </f:link.action>
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </li>
+        </f:for>
+    </ul>
+    <div>
+        <ol>
+            <f:for each="{lyricsa}" as="lyric">
+                <li>
+                    <f:link.action action="show" arguments="{lyric : lyric}" noCacheHash="0">
+                        <f:format.html>{lyric.titel}</f:format.html>
+                    </f:link.action>
+                </li>
+                <f:comment>
+                    <li>
+                        <f:format.html>{lyric.titel}</f:format.html>
+                    </li>
+                </f:comment>
+            </f:for>
+        </ol>
+    </div>
 </f:section>

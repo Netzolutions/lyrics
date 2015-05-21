@@ -26,12 +26,12 @@ options:
 
 
 .. figure:: Images/AdministratorManual/ExtensionManager.png
-		:width: 500px
+:width: 500px
 		:alt: Extension Manager
 
-		Extension Manager (caption of the image)
+    		Extension Manager (caption of the image)
 
-		List of extensions within the Extension Manager also shorten with "EM" (legend of the image)
+    		List of extensions within the Extension Manager also shorten with "EM" (legend of the image)
 
 
 Configuration

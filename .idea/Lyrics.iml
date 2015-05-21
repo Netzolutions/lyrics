@@ -7,13 +7,12 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../source" />
+          <root url="file://$MODULE_DIR$/../source/Typo3_7.2.0" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../source" />
+          <root url="file://$MODULE_DIR$/../source/Typo3_7.2.0" />
         </SOURCES>
       </library>
     </orderEntry>
   </component>
 </module>
-

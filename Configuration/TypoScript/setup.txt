@@ -1,17 +1,18 @@
-
 plugin.tx_lyrics {
-	view {
-		templateRootPath = {$plugin.tx_lyrics.view.templateRootPath}
-		partialRootPath = {$plugin.tx_lyrics.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_lyrics.view.layoutRootPath}
-	}
-	persistence {
-		storagePid = {$plugin.tx_lyrics.persistence.storagePid}
-	}
-	features {
-		# uncomment the following line to enable the new Property Mapper.
-		# rewrittenPropertyMapper = 1
-	}
+    view {
+        templateRootPath = {$plugin.tx_lyrics.view.templateRootPath}
+        partialRootPath = {$plugin.tx_lyrics.view.partialRootPath}
+        layoutRootPath = {$plugin.tx_lyrics.view.layoutRootPath}
+    }
+
+    persistence {
+        storagePid = {$plugin.tx_lyrics.persistence.storagePid}
+    }
+
+    features {
+        # uncomment the following line to enable the new Property Mapper.
+        # rewrittenPropertyMapper = 1
+    }
 }
 
 plugin.tx_lyrics._CSS_DEFAULT_STYLE (
@@ -48,15 +49,16 @@ plugin.tx_lyrics._CSS_DEFAULT_STYLE (
 
 )
 
- # Module configuration
+# Module configuration
 module.tx_lyrics {
-	persistence {
-		storagePid = {$module.tx_lyrics.persistence.storagePid}
+    persistence {
+        storagePid = {$module.tx_lyrics.persistence.storagePid}
         storagePid.ifEmpty.data = {page:uid}
-	}
-	view {
-		templateRootPath = {$module.tx_lyrics.view.templateRootPath}
-		partialRootPath = {$module.tx_lyrics.view.partialRootPath}
-		layoutRootPath = {$module.tx_lyrics.view.layoutRootPath}
-	}
+    }
+
+    view {
+        templateRootPath = {$module.tx_lyrics.view.templateRootPath}
+        partialRootPath = {$module.tx_lyrics.view.partialRootPath}
+        layoutRootPath = {$module.tx_lyrics.view.layoutRootPath}
+    }
 }

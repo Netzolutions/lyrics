@@ -27,7 +27,8 @@ namespace Netzcript\Lyrics\Controller;
  ***************************************************************/
 
 
-abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
 
     /**
      * lyricsRepository
@@ -44,14 +45,15 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
      * @inject
      */
     protected $artistsRepository = NULL;
-    
-    
+
+
     /**
      * initialize the controller
      *
      * @return void
      */
-    protected function initializeAction() {
+    protected function initializeAction()
+    {
         parent::initializeAction();
         //fallback to current pid if no storagePid is defined
         $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);

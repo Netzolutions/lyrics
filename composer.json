@@ -1,0 +1,15 @@
+{
+  "name": "netzcript/lyrics",
+  "type": "typo3-cms-extension",
+  "description": "Lyrics and Artist Database",
+  "license": ["GPL-2.0+"],
+  "version": "0.2.0",
+  "require": {
+    "typo3/cms-core": ">=7.2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Netzcript\\Lyrics\\": "Classes"
+    }
+  }
+}

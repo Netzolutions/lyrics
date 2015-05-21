@@ -6,7 +6,7 @@ CREATE TABLE tx_lyrics_domain_model_lyrics (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	titel varchar(255) DEFAULT '' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL,
 	text text NOT NULL,
 	vlabel varchar(255) DEFAULT '' NOT NULL,
 	author varchar(255) DEFAULT '' NOT NULL,
@@ -44,8 +44,8 @@ CREATE TABLE tx_lyrics_domain_model_lyrics (
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
- KEY language (l10n_parent,sys_language_uid)
-
+	KEY artist (artist),
+  KEY language (l10n_parent,sys_language_uid)
 );
 
 #
@@ -58,8 +58,7 @@ CREATE TABLE tx_lyrics_domain_model_artists (
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
-	biographie text NOT NULL,
-	is_active tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	biography text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -87,8 +86,7 @@ CREATE TABLE tx_lyrics_domain_model_artists (
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
- KEY language (l10n_parent,sys_language_uid)
-
+  KEY language (l10n_parent,sys_language_uid)
 );
 
 #

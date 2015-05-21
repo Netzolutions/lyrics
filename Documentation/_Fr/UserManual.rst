@@ -9,9 +9,9 @@ Comment installer et utiliser l'extension du point de vue de l'utilisateur.
 Copie d'écran indispensable.
 
 .. figure:: Images/UserManualFr/BackendView.png
-		:width: 500px
+:width: 500px
 		:alt: Backend view
 
-		Vue par défaut du Backend (caption tag)
+    		Vue par défaut du Backend (caption tag)
 
-		La vue Backend par défaut du module "Page". (legend tag)
+    		La vue Backend par défaut du module "Page". (legend tag)
