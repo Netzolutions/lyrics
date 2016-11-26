@@ -5,7 +5,7 @@ namespace Netzcript\Lyrics\Domain\Model;
  *
  *  Copyright notice
  *
- *  (c) 2014-2016 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *  (c) 2016 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
  *
  *  All rights reserved
  *
@@ -29,89 +29,84 @@ namespace Netzcript\Lyrics\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Class Artist
- * @package Netzcript\Lyrics\Domain\Model
+ * Class LyricsReference
+ * @package Netzcript\Lyrics
  */
-class Artist extends AbstractEntity
+class LyricsReference extends AbstractEntity
 {
     /**
-     * Name
-     * @var string
-     * @validate NotEmpty
-     */
-    protected $name = '';
-
-    /**
-     * Is active
      * @var string
      */
-    protected $description = '';
+    protected $title;
 
     /**
-     * Is active
      * @var string
      */
-    protected $biography = '';
+    protected $time;
 
     /**
-     * Returns the name
-     * @return string $name
+     * @var string
      */
-    public function getName()
+    protected $description;
+
+    /**
+     * Reference to the original Lyrics.
+     *
+     * @var Lyrics
+     */
+    protected $originalLyrics;
+    
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
     {
-        return $this->name;
+        $this->title = $title;
     }
 
     /**
-     * Sets the name
-     *
-     * @param string $name
-     * @return void
+     * @param string $time
      */
-    public function setName($name)
+    public function setTime($time)
     {
-        $this->name = $name;
+        $this->time = $time;
     }
 
     /**
-     * Returns the description
-     *
-     * @return string $description
+     * @return Lyrics
      */
-    public function getDescription()
+    public function getOriginalLyrics()
     {
-        return $this->description;
+        return $this->originalLyrics;
     }
 
     /**
-     * Sets the description
-     *
-     * @param string $description
-     * @return void
+     * @param Lyrics $originalLyrics
      */
-    public function setDescription($description)
+    public function setOriginalLyrics($originalLyrics)
     {
-        $this->description = $description;
+        $this->originalLyrics = $originalLyrics;
     }
 
     /**
-     * Returns the biography
-     *
-     * @return string $biography
+     * @return string
      */
-    public function getBiography()
+    public function getTitle()
     {
-        return $this->biography;
+        if($this->title == null && $this->originalLyrics != null) {
+            return $this->originalLyrics->getTitle();
+        }
+        return $this->title;
     }
 
     /**
-     * Sets the biographie
-     *
-     * @param string $biography
-     * @return void
+     * @return string
      */
-    public function setBiography($biography)
+    public function getTime()
     {
-        $this->biography = $biography;
+        if($this->time == null && $this->originalLyrics != null) {
+            return $this->originalLyrics->getTime();
+        }
+        return $this->time;
     }
 }

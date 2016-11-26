@@ -55,6 +55,13 @@
             <trans-unit id="tx_lyrics_domain_model_artists.is_active">
                 <source>Is Active</source>
             </trans-unit>
+
+            <trans-unit id="navigation.list">
+                <source>List</source>
+            </trans-unit>
+            <trans-unit id="navigation.show">
+                <source>Show</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

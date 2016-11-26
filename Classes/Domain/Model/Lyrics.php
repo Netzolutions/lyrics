@@ -1,48 +1,49 @@
 <?php
 namespace Netzcript\Lyrics\Domain\Model;
 
+/***************************************************************
+ *
+ *  Copyright notice
+ *
+ *  (c) 2014-2016 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
-    /***************************************************************
-     *
-     *  Copyright notice
-     *
-     *  (c) 2014 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
-     *
-     *  All rights reserved
-     *
-     *  This script is part of the TYPO3 project. The TYPO3 project is
-     *  free software; you can redistribute it and/or modify
-     *  it under the terms of the GNU General Public License as published by
-     *  the Free Software Foundation; either version 3 of the License, or
-     *  (at your option) any later version.
-     *
-     *  The GNU General Public License can be found at
-     *
-     *
-     *  This script is distributed in the hope that it will be useful,
-     *  but WITHOUT ANY WARRANTY; without even the implied warranty of
-     *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     *  GNU General Public License for more details.
-     *
-     *  This copyright notice MUST APPEAR in all copies of the script!
-     ***************************************************************/
+use \TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Lyrics
+ * Class Lyrics
+ * @package Netzcript\Lyrics\Domain\Model
  */
-class Lyric extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Lyrics extends AbstractEntity
 {
     /**
      * Title
-     *
      * @var string
      * @validate NotEmpty
      */
     protected $title = '';
 
     /**
-     * Lyric Text
-     *
+     * Lyrics Text
      * @var string
      * @validate NotEmpty
      */
@@ -50,64 +51,55 @@ class Lyric extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * Label
-     *
      * @var string
      */
     protected $vlabel = '';
 
     /**
      * Author
-     *
      * @var string
      */
     protected $author = '';
 
     /**
      * Composer
-     *
      * @var string
      */
     protected $composer = '';
 
     /**
-     * Lengh of Song
-     *
+     * Length of Song
      * @var string
      */
     protected $time = '';
 
     /**
      * hasTranslation
-     *
      * @var boolean
      */
     protected $hasTranslation = FALSE;
 
     /**
      * translatedTitle
-     *
      * @var string
      */
     protected $translatedTitle = '';
 
     /**
      * translatedText
-     *
      * @var string
      */
     protected $translatedText = '';
 
     /**
      * translator
-     *
      * @var string
      */
     protected $translator = '';
 
     /**
      * Artist
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Lyrics\Domain\Model\Artists>
-     * @lazy
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Lyrics\Domain\Model\Artist>
      */
     protected $artist = NULL;
 
@@ -130,7 +122,7 @@ class Lyric extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected function initStorageObjects()
     {
-        $this->artist = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->artist = new ObjectStorage();
     }
 
     /**
@@ -354,23 +346,23 @@ class Lyric extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Adds a Artists
+     * Adds a Artist
      *
      * @param \Netzcript\Lyrics\Domain\Model\Artist $artist
      * @return void
      */
-    public function addArtist(\Netzcript\Lyrics\Domain\Model\Artist $artist)
+    public function addArtist(Artist $artist)
     {
         $this->artist->attach($artist);
     }
 
     /**
-     * Removes a Artists
+     * Removes a Artist
      *
-     * @param \Netzcript\Lyrics\Domain\Model\Artist $artistToRemove The Artists to be removed
+     * @param \Netzcript\Lyrics\Domain\Model\Artist $artistToRemove The Artist to be removed
      * @return void
      */
-    public function removeArtist(\Netzcript\Lyrics\Domain\Model\Artist $artistToRemove)
+    public function removeArtist(Artist $artistToRemove)
     {
         $this->artist->detach($artistToRemove);
     }
@@ -391,7 +383,7 @@ class Lyric extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Netzcript\Lyrics\Domain\Model\Artist> $artist
      * @return void
      */
-    public function setArtists(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $artist)
+    public function setArtists(ObjectStorage $artist)
     {
         $this->artist = $artist;
     }

@@ -1,6 +1,9 @@
 <T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
     <sheets>
-        <main>
+        <sDEF>
             <ROOT>
                 <TCEforms>
                     <sheetTitle>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.title
@@ -8,51 +11,9 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <switchableControllerActions>
-                        <TCEforms>
-                            <label>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.view</label>
-                            <onChange>reload</onChange>
-                            <config>
-                                <type>select</type>
-                                <items>
-                                    <numIndex index="0">
-                                        <numIndex index="0">
-                                            LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:pleaseChoose
-                                        </numIndex>
-                                        <numIndex index="1"></numIndex>
-                                    </numIndex>
-                                    <numIndex index="1">
-                                        <numIndex index="0">
-                                            LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.list
-                                        </numIndex>
-                                        <numIndex index="1">Lyrics->list;</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2">
-                                        <numIndex index="0">
-                                            LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.main.show
-                                        </numIndex>
-                                        <numIndex index="1">Lyrics->show</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
-                    </switchableControllerActions>
-                </el>
-            </ROOT>
-        </main>
-        <list>
-            <ROOT>
-                <TCEforms>
-                    <sheetTitle>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.list.title
-                    </sheetTitle>
-                    <displayCond><![CDATA[FIELD:main.switchableControllerActions:=:Lyrics->list;]]></displayCond>
-                </TCEforms>
-                <type>array</type>
-                <el>
                     <settings.list.artist>
                         <TCEforms>
-                            <label>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.list.artist
-                            </label>
+                            <label>LLL:EXT:lyrics/Resources/Private/Language/locallang_db.xlf:flexform.list.artist</label>
                             <config>
                                 <type>select</type>
                                 <maxitems>1</maxitems>
@@ -70,6 +31,6 @@
                     </settings.list.artist>
                 </el>
             </ROOT>
-        </list>
+        </sDEF>
     </sheets>
 </T3DataStructure>

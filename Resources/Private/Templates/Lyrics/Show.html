@@ -1,22 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
-
-This Template is responsible for displaying a single view for a domain object
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-Resources:
-Private:
-Templates:
-Show.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
-    <h1>Single View for Lyrics</h1>
-
-    <f:flashMessages renderMode="div"/>
-    <f:render partial="Lyrics/Properties" arguments="{lyrics:lyrics}"/>
-    <f:link.action action="list">Back to list</f:link.action>
-    <br/>
-    <f:link.action action="new">New Lyrics</f:link.action>
+    <h1>Lyrics{f:if(condition: currentArtist, then: ' - {currentArtist.name}')}</h1>
+    <div class="row">
+        <f:if condition="{lyrics.translatedText}">
+            <f:then>
+                <div class="col-lg-6 col-md-12">
+            </f:then>
+            <f:else>
+                <div class="col-md-12">
+            </f:else>
+        </f:if>
+            <div class="lyrics-container original">
+                <h2><f:format.html>{lyrics.title}</f:format.html></h2>
+                <ul class="lyrics-info">
+                    <f:if condition="{lyrics.vlabel}">
+                        <li class="vlabel">Label: {lyrics.vlabel}</li>
+                    </f:if>
+                    <f:if condition="{lyrics.author}">
+                        <li class="words">Words: {lyrics.author}</li>
+                    </f:if>
+                    <f:if condition="{lyrics.composer}">
+                        <li class="music">Music: {lyrics.composer}</li>
+                    </f:if>
+                    <f:if condition="{lyrics.time}">
+                        <li class="time">Länge: {lyrics.time}</li>
+                    </f:if>
+                </ul>
+                <p class="lyrics-text"><f:format.html>{lyrics.text}</f:format.html></p>
+            </div>
+        </div>
+        <f:if condition="{lyrics.translatedText}">
+            <div class="col-lg-6 col-md-12">
+                <div class="lyrics-container translation">
+                    <h2><f:format.html>{lyrics.translatedTitle}</f:format.html></h2>
+                    <ul class="lyrics-info">
+                        <f:if condition="{lyrics.time}">
+                            <li class="translator">Übersetzer: {lyrics.translator}</li>
+                        </f:if>
+                    </ul>
+                    <p class="lyrics-text"><f:format.html>{lyrics.translatedText}</f:format.html></p>
+                </div>
+            </div>
+        </f:if>
+    </div>
 </f:section>
+</html>

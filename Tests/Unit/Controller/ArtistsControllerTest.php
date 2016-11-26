@@ -55,7 +55,7 @@ class ArtistsControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
         $allArtistss = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array(), array(), '', FALSE);
 
-        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistsRepository', array('findAll'), array(), '', FALSE);
+        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistRepository', array('findAll'), array(), '', FALSE);
         $artistsRepository->expects($this->once())->method('findAll')->will($this->returnValue($allArtistss));
         $this->inject($this->subject, 'artistsRepository', $artistsRepository);
 
@@ -101,7 +101,7 @@ class ArtistsControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $artists = new \Netscript\Lyrics\Domain\Model\Artists();
 
-        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistsRepository', array('add'), array(), '', FALSE);
+        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistRepository', array('add'), array(), '', FALSE);
         $artistsRepository->expects($this->once())->method('add')->with($artists);
         $this->inject($this->subject, 'artistsRepository', $artistsRepository);
 
@@ -129,7 +129,7 @@ class ArtistsControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $artists = new \Netscript\Lyrics\Domain\Model\Artists();
 
-        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistsRepository', array('update'), array(), '', FALSE);
+        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistRepository', array('update'), array(), '', FALSE);
         $artistsRepository->expects($this->once())->method('update')->with($artists);
         $this->inject($this->subject, 'artistsRepository', $artistsRepository);
 
@@ -143,7 +143,7 @@ class ArtistsControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $artists = new \Netscript\Lyrics\Domain\Model\Artists();
 
-        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistsRepository', array('remove'), array(), '', FALSE);
+        $artistsRepository = $this->getMock('Netscript\\Lyrics\\Domain\\Repository\\ArtistRepository', array('remove'), array(), '', FALSE);
         $artistsRepository->expects($this->once())->method('remove')->with($artists);
         $this->inject($this->subject, 'artistsRepository', $artistsRepository);
 

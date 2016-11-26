@@ -85,7 +85,7 @@ createAutoloadRegistry: false
 classBuilder:
 
   Controller:
-    parentClass: \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+    parentClass: \Netzcript\Lyrics\Controller\AbstractController
 
   Model:
     AbstractEntity:

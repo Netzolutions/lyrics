@@ -3,7 +3,17 @@ config.tx_extbase {
         classes {
             Netzcript\Lyrics\Domain\Model\Lyrics {
                 mapping {
-
+                    tableName = tx_lyrics_domain_model_lyrics
+                }
+            }
+            Netzcript\Lyrics\Domain\Model\Artists {
+                mapping {
+                    tableName = tx_lyrics_domain_model_artists
+                }
+            }
+            Netzcript\Lyrics\Domain\Model\LyricsReference {
+                mapping {
+                    tableName = sys_lyrics_reference
                 }
             }
         }

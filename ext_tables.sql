@@ -49,9 +49,9 @@ CREATE TABLE tx_lyrics_domain_model_lyrics (
 );
 
 #
-# Table structure for table 'tx_lyrics_domain_model_artists'
+# Table structure for table 'tx_lyrics_domain_model_artist'
 #
-CREATE TABLE tx_lyrics_domain_model_artists (
+CREATE TABLE tx_lyrics_domain_model_artist (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE tx_lyrics_domain_model_artists (
 );
 
 #
-# Table structure for table 'tx_lyrics_lyrics_artists_mm'
+# Table structure for table 'tx_lyrics_lyrics_artist_mm'
 #
 CREATE TABLE tx_lyrics_lyrics_artists_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -98,6 +98,50 @@ CREATE TABLE tx_lyrics_lyrics_artists_mm (
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_diskographie_lyrics_reference'
+#
+CREATE TABLE sys_lyrics_reference (
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	tablenames varchar(64) DEFAULT '' NOT NULL,
+	fieldname varchar(64) DEFAULT '' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	table_local varchar(64) DEFAULT '' NOT NULL,
+
+	title tinytext,
+	time tinytext,
+	description tinytext,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+
+	PRIMARY KEY (uid),
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );

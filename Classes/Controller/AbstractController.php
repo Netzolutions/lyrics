@@ -1,6 +1,9 @@
 <?php
 namespace Netzcript\Lyrics\Controller;
 
+use \TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+
 /***************************************************************
  *
  *  Copyright notice
@@ -27,7 +30,7 @@ namespace Netzcript\Lyrics\Controller;
  ***************************************************************/
 
 
-abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+abstract class AbstractController extends ActionController
 {
 
     /**
@@ -41,7 +44,7 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
     /**
      * artistsRepository
      *
-     * @var \Netzcript\Lyrics\Domain\Repository\ArtistsRepository
+     * @var \Netzcript\Lyrics\Domain\Repository\ArtistRepository
      * @inject
      */
     protected $artistsRepository = NULL;
@@ -56,7 +59,7 @@ abstract class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\Acti
     {
         parent::initializeAction();
         //fallback to current pid if no storagePid is defined
-        $configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        $configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
         if (empty($configuration['persistence']['storagePid'])) {
             $currentPid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
             $this->configurationManager->setConfiguration(array_merge($configuration, $currentPid));

@@ -11,7 +11,7 @@ if (!defined('TYPO3_MODE')) {
     ),
     array(
         'Lyrics' => '',
-        'Artists' => ''
+        'Artist' => ''
     )
 );
 
@@ -19,10 +19,10 @@ if (!defined('TYPO3_MODE')) {
     'Netzcript.' . $_EXTKEY,
     'Artist',
     array(
-        'Artists' => 'list, show',
+        'Artist' => 'list, show',
     ),
     array(
         'Lyrics' => '',
-        'Artists' => ''
+        'Artist' => ''
     )
 );

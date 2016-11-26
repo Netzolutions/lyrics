@@ -1,12 +1,11 @@
 <?php
 namespace Netzcript\Lyrics\Controller;
 
-
     /***************************************************************
      *
      *  Copyright notice
      *
-     *  (c) 2014 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+     *  (c) 2014-2015 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
      *
      *  All rights reserved
      *
@@ -27,10 +26,12 @@ namespace Netzcript\Lyrics\Controller;
      *  This copyright notice MUST APPEAR in all copies of the script!
      ***************************************************************/
 
+use \Netzcript\Lyrics\Domain\Model\Artist;
+
 /**
  * ArtistsController
  */
-class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController
+class ArtistsController extends AbstractController
 {
     /**
      * action list
@@ -46,10 +47,10 @@ class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController
     /**
      * action show
      *
-     * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
+     * @param \Netzcript\Lyrics\Domain\Model\Artist $artists
      * @return void
      */
-    public function showAction(\Netzcript\Lyrics\Domain\Model\Artists $artists)
+    public function showAction(Artist $artists)
     {
         $this->view->assign('artists', $artists);
     }
@@ -57,11 +58,11 @@ class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController
     /**
      * action new
      *
-     * @param \Netzcript\Lyrics\Domain\Model\Artists $newArtists
+     * @param \Netzcript\Lyrics\Domain\Model\Artist $newArtists
      * @ignorevalidation $newArtists
      * @return void
      */
-    public function newAction(\Netzcript\Lyrics\Domain\Model\Artists $newArtists = NULL)
+    public function newAction(Artist $newArtists = NULL)
     {
         $this->view->assign('newArtists', $newArtists);
     }
@@ -69,10 +70,10 @@ class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController
     /**
      * action create
      *
-     * @param \Netzcript\Lyrics\Domain\Model\Artists $newArtists
+     * @param \Netzcript\Lyrics\Domain\Model\Artist $newArtists
      * @return void
      */
-    public function createAction(\Netzcript\Lyrics\Domain\Model\Artists $newArtists)
+    public function createAction(Artist $newArtists)
     {
         $this->artistsRepository->add($newArtists);
         $this->redirect('list');
@@ -81,11 +82,11 @@ class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController
     /**
      * action edit
      *
-     * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
+     * @param \Netzcript\Lyrics\Domain\Model\Artist $artists
      * @ignorevalidation $artists
      * @return void
      */
-    public function editAction(\Netzcript\Lyrics\Domain\Model\Artists $artists)
+    public function editAction(Artist $artists)
     {
         $this->view->assign('artists', $artists);
     }
@@ -93,10 +94,10 @@ class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController
     /**
      * action update
      *
-     * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
+     * @param \Netzcript\Lyrics\Domain\Model\Artist $artists
      * @return void
      */
-    public function updateAction(\Netzcript\Lyrics\Domain\Model\Artists $artists)
+    public function updateAction(Artist $artists)
     {
         $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
         $this->artistsRepository->update($artists);
@@ -106,10 +107,10 @@ class ArtistsController extends \Netzcript\Lyrics\Controller\AbstractController
     /**
      * action delete
      *
-     * @param \Netzcript\Lyrics\Domain\Model\Artists $artists
+     * @param \Netzcript\Lyrics\Domain\Model\Artist $artists
      * @return void
      */
-    public function deleteAction(\Netzcript\Lyrics\Domain\Model\Artists $artists)
+    public function deleteAction(Artist $artists)
     {
         $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See <a href="http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain" target="_blank">Wiki</a>', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
         $this->artistsRepository->remove($artists);

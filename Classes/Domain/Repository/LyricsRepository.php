@@ -1,12 +1,11 @@
 <?php
 namespace Netzcript\Lyrics\Domain\Repository;
 
-
 /***************************************************************
  *
  *  Copyright notice
  *
- *  (c) 2014 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
+ *  (c) 2015 Markus Pircher <markus.pircher@netzolutions.eu>, netzolutions OHG
  *
  *  All rights reserved
  *
@@ -27,24 +26,30 @@ namespace Netzcript\Lyrics\Domain\Repository;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use Netzcript\Lyrics\Domain\Model\Artist;
+use \TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * The repository for Artist
+ * The repository for Lyrics
  */
-class ArtistRepository extends Repository
+class LyricsRepository extends Repository
 {
     /**
-     * @param $name
-     * @return Artist
+     * Find Lyrics by Artist
+     * @param int $artist
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findByName($name)
+    public function findByArtist($artist)
     {
         $query = $this->createQuery();
-        $query->matching(
-            $query->equals('name', $name)
+        $query->matching($query->contains('artist', intval($artist)));
+
+        $query->setOrderings(
+            array(
+                'title' => QueryInterface::ORDER_DESCENDING
+            )
         );
-        return $query->execute()->getFirst();
+        $object = $query->execute();
+        return $object;
     }
 }

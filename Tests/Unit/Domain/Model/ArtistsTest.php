@@ -27,7 +27,7 @@ namespace Netscript\Lyrics\Tests\Unit\Domain\Model;
      ***************************************************************/
 
 /**
- * Test case for class \Netscript\Lyrics\Domain\Model\Artists.
+ * Test case for class \Netscript\Lyrics\Domain\Model\Artist.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later

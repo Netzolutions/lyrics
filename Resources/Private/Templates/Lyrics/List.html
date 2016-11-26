@@ -1,58 +1,59 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
-
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-Resources:
-Private:
-Templates:
-List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
-    <ul>
-        <f:for each="{artists}" as="artist" iteration="iterator">
-            <li>
-                <f:if condition="{iterator.isFirst}">
-                    <f:then>
-                        <f:link.action class="first" action="list" noCacheHash="0" arguments="{artist : artist}">
+    <h1>Lyrics{f:if(condition: currentArtist, then: ' - {currentArtist.name}')}</h1>
+    <div class="row">
+        <div class="col-sm-3 sub-col right-float">
+            <h3>Artists</h3>
+            <ul class="col-navigation">
+                <f:for each="{artists}" as="artist" iteration="iterator">
+                    <li class="{f:if(condition: '{artist} == {currentArtist}', then: 'active')}">
+                        <f:link.action action="list" noCacheHash="0" arguments="{artist : artist}">
                             {artist.name}
                         </f:link.action>
-                    </f:then>
-                    <f:else>
-                        <f:if condition="{iterator.isLast}">
-                            <f:then>
-                                <f:link.action class="last" action="list" noCacheHash="0" arguments="{artist : artist}">
-                                    {artist.name}
-                                </f:link.action>
-                            </f:then>
-                            <f:else>
-                                <f:link.action action="list" noCacheHash="0" arguments="{artist : artist}">
-                                    {artist.name}
-                                </f:link.action>
-                            </f:else>
-                        </f:if>
-                    </f:else>
-                </f:if>
-            </li>
-        </f:for>
-    </ul>
-    <div>
-        <ol>
-            <f:for each="{lyricsa}" as="lyric">
-                <li>
-                    <f:link.action action="show" arguments="{lyric : lyric}" noCacheHash="0">
-                        <f:format.html>{lyric.titel}</f:format.html>
-                    </f:link.action>
-                </li>
-                <f:comment>
-                    <li>
-                        <f:format.html>{lyric.titel}</f:format.html>
                     </li>
-                </f:comment>
-            </f:for>
-        </ol>
+                </f:for>
+            </ul>
+        </div>
+        <div class="col-sm-9 sub-content right-float">
+            <f:if condition="{sortedLyrics}">
+                <f:then>
+                    <div class="lyrics-list-container">
+                        <f:for each="{sortedLyrics}" as="subList" key="key">
+                            <div class="lyrics-list-section">
+                                <h4>{key}</h4>
+                                <ul class="lyrics-list">
+                                    <f:for each="{subList}" as="lyric">
+                                        <li>
+                                            <f:link.action action="show" arguments="{lyric: lyric, artist: currentArtist}">
+                                                <f:format.raw>{lyric.title}</f:format.raw>
+                                            </f:link.action>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </div>
+                        </f:for>
+                    </div>
+                </f:then>
+                <f:else>
+                    <ol>
+                        <f:for each="{lyrics}" as="lyric">
+                            <li>
+                                <f:link.action action="show" arguments="{lyric: lyric, artist: currentArtist}">
+                                    <f:format.html>{lyric.title}</f:format.html>
+                                </f:link.action>
+                            </li>
+                            <f:comment>
+                                <li>
+                                    <f:format.html>{lyric.title}</f:format.html>
+                                </li>
+                            </f:comment>
+                        </f:for>
+                    </ol>
+                </f:else>
+            </f:if>
+
+        </div>
     </div>
 </f:section>
+</html>
